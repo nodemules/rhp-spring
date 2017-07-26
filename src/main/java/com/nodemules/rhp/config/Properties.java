@@ -1,7 +1,9 @@
 package com.nodemules.rhp.config;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
@@ -41,12 +43,14 @@ public class Properties {
       private String name;
 
       private String user;
+
+      @Getter(AccessLevel.PACKAGE)
       private String key;
 
       private String host;
       private int port;
 
-      public char[] getKey() {
+      protected char[] getKey() {
         char[] key = new char[]{};
         if (this.key != null) {
           key = this.key.toCharArray();
@@ -60,7 +64,6 @@ public class Properties {
         sb.append("MongoConnection information:").append(NEW_LINE);
         sb.append("name: ").append(this.name).append(NEW_LINE);
         sb.append("user: ").append(this.user).append(NEW_LINE);
-        sb.append("key: ").append(this.key).append(NEW_LINE);
         sb.append("host: ").append(this.host).append(NEW_LINE);
         sb.append("port: ").append(this.port).append(NEW_LINE);
         return sb.toString();

@@ -4,6 +4,7 @@ import com.nodemules.rhp.api.player.bean.Player;
 import org.bson.types.ObjectId;
 
 import java.text.ParseException;
+import java.util.List;
 
 /**
  * @author brent
@@ -12,8 +13,15 @@ import java.text.ParseException;
 public interface PlayerOperations {
 
   /**
+   * Gets all the Players
+   *
+   * @return
+   */
+  List<Player> getPlayers() throws ParseException;
+
+  /**
    * Get a Player by id
-   * @Param
+   * @param id
    *
    * @return
    */

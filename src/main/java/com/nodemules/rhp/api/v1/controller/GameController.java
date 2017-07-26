@@ -1,13 +1,12 @@
 package com.nodemules.rhp.api.v1.controller;
 
-import com.nodemules.rhp.api.player.PlayerOperations;
-import com.nodemules.rhp.api.player.bean.Player;
+import com.nodemules.rhp.api.game.GameOperations;
+import com.nodemules.rhp.api.game.bean.Game;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.ParseException;
@@ -18,22 +17,21 @@ import java.util.List;
  * @since 7/26/17.
  */
 @Controller
-@RequestMapping("/player")
-public class PlayerController {
+@RequestMapping("/game")
+public class GameController {
 
   @Autowired
-  private PlayerOperations playerService;
+  private GameOperations gameService;
 
   @RequestMapping
   @ResponseBody
-  public List<Player> getPlayers() throws ParseException {
-    return playerService.getPlayers();
+  public List<Game> getGames() throws ParseException {
+    return gameService.getGames();
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+  @RequestMapping("/{id}")
   @ResponseBody
-  public Player getPlayer(@PathVariable String id) throws ParseException {
-    return playerService.getPlayer(new ObjectId(id));
+  public Game getGame(@PathVariable String id) throws ParseException {
+    return gameService.getGame(new ObjectId(id));
   }
-
 }

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.bson.types.ObjectId;
 
 /**
  * @author brent
@@ -16,7 +15,7 @@ import org.bson.types.ObjectId;
 public class Player {
 
   @NonNull
-  private ObjectId id;
+  private String id;
   @NonNull
   private String name;
   private boolean isTournamentDirector;
