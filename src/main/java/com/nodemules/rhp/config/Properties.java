@@ -1,7 +1,6 @@
 package com.nodemules.rhp.config;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -23,51 +22,39 @@ public class Properties {
   private String name;
   private int version;
 
-  private final Mongo mongo = new Mongo();
+  private final Connection db = new Connection();
 
   @Data
-  @AllArgsConstructor
   @Component
-  public class Mongo {
+  @ConfigurationProperties("db.connection")
+  public class Connection {
+    private String name;
 
-    private final Connection connection = new Connection();
+    private String user;
+
+    @Getter(AccessLevel.PACKAGE)
+    private String key;
+
+    private String host;
+    private int port;
+
+    protected char[] getKey() {
+      char[] key = new char[]{};
+      if (this.key != null) {
+        key = this.key.toCharArray();
+      }
+      return key;
+    }
 
     @Override
     public String toString() {
-      return this.connection.toString();
-    }
-
-    @Data
-    @Component
-    public class Connection {
-      private String name;
-
-      private String user;
-
-      @Getter(AccessLevel.PACKAGE)
-      private String key;
-
-      private String host;
-      private int port;
-
-      protected char[] getKey() {
-        char[] key = new char[]{};
-        if (this.key != null) {
-          key = this.key.toCharArray();
-        }
-        return key;
-      }
-
-      @Override
-      public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("MongoConnection information:").append(NEW_LINE);
-        sb.append("name: ").append(this.name).append(NEW_LINE);
-        sb.append("user: ").append(this.user).append(NEW_LINE);
-        sb.append("host: ").append(this.host).append(NEW_LINE);
-        sb.append("port: ").append(this.port).append(NEW_LINE);
-        return sb.toString();
-      }
+      StringBuilder sb = new StringBuilder();
+      sb.append("MongoConnection information:").append(NEW_LINE);
+      sb.append("name: ").append(this.name).append(NEW_LINE);
+      sb.append("user: ").append(this.user).append(NEW_LINE);
+      sb.append("host: ").append(this.host).append(NEW_LINE);
+      sb.append("port: ").append(this.port).append(NEW_LINE);
+      return sb.toString();
     }
   }
 

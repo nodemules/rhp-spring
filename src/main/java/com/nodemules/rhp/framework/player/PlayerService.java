@@ -1,9 +1,9 @@
-package com.nodemules.rhp.api.player;
+package com.nodemules.rhp.framework.player;
 
-import com.nodemules.rhp.api.player.bean.Player;
-import com.nodemules.rhp.util.DTOMapper;
+import com.nodemules.rhp.framework.player.bean.Player;
+import com.nodemules.rhp.mapper.player.PlayerMapper;
 import com.nodemules.rhp.repository.PlayerRepository;
-import org.bson.types.ObjectId;
+import fr.xebia.extras.selma.Selma;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +21,23 @@ public class PlayerService implements PlayerOperations {
 
   private static final Logger LOG = LoggerFactory.getLogger(PlayerService.class);
 
+  private static PlayerMapper mapper = Selma.builder(PlayerMapper.class).build();
+
   @Autowired
   private PlayerRepository playerRepo;
 
   @Override
   public List<Player> getPlayers() throws ParseException {
-    return DTOMapper.mapAll(playerRepo.findAll(), Player.class);
+    return mapper.toPlayers(playerRepo.findAll());
   }
 
   @Override
-  public Player getPlayer(ObjectId id) throws ParseException {
-    com.nodemules.rhp.orm.player.Player player = playerRepo.findOne(id);
-    LOG.info("Player info for {} : {}", id, player.toString());
-    Player p = DTOMapper.map(player, Player.class);
-    return p;
+  public Player getPlayer(Long id) throws ParseException {
+    return mapper.toPlayer(playerRepo.findOne(id));
+  }
+
+  @Override
+  public Player persistPlayer(Player player) {
+    return mapper.toPlayer(playerRepo.save(mapper.toPlayer(player)));
   }
 }

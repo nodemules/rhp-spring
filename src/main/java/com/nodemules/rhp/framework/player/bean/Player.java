@@ -1,10 +1,9 @@
-package com.nodemules.rhp.orm.player;
+package com.nodemules.rhp.framework.player.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import lombok.NonNull;
 
 /**
  * @author brent
@@ -13,17 +12,14 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "player")
 public class Player {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "player_id")
-  private Long id;
+  private Long id = -1L;
+  @NonNull
   private String name;
   private int status;
   private boolean tournamentDirector;
   private int shoutOuts;
+
 
 }

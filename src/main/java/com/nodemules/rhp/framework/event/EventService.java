@@ -1,4 +1,4 @@
-package com.nodemules.rhp.api.event;
+package com.nodemules.rhp.framework.event;
 
 import org.springframework.stereotype.Service;
 

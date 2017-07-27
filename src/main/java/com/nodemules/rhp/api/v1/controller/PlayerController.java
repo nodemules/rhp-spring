@@ -1,14 +1,12 @@
 package com.nodemules.rhp.api.v1.controller;
 
-import com.nodemules.rhp.api.player.PlayerOperations;
-import com.nodemules.rhp.api.player.bean.Player;
-import org.bson.types.ObjectId;
+import com.nodemules.rhp.framework.player.PlayerOperations;
+import com.nodemules.rhp.framework.player.bean.Player;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -21,6 +19,8 @@ import java.util.List;
 @RequestMapping("/player")
 public class PlayerController {
 
+  private static final Logger LOG = LoggerFactory.getLogger(PlayerController.class);
+
   @Autowired
   private PlayerOperations playerService;
 
@@ -32,8 +32,15 @@ public class PlayerController {
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Player getPlayer(@PathVariable String id) throws ParseException {
-    return playerService.getPlayer(new ObjectId(id));
+  public Player getPlayer(@PathVariable Long id) throws ParseException {
+    return playerService.getPlayer(id);
+  }
+
+  @RequestMapping(method = RequestMethod.POST)
+  @ResponseBody
+  public Player persistPlayer(@RequestBody Player player) {
+    LOG.info("Persisting player: ", player.toString());
+    return playerService.persistPlayer(player);
   }
 
 }

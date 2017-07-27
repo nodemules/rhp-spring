@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.sql.*;
+
 @SpringBootApplication
 public class Application {
 
@@ -33,6 +35,20 @@ public class Application {
       printServerReady();
     };
 	}
+
+	private static void testDBConnection() throws SQLException {
+	  LOG.info("Testing DB Connection");
+    String url = "jdbc:mariadb://localhost:3306/runningheartsapp?useUnicode=true&characterEncoding=utf8";
+    String user = "rhp-dev";
+    String password = "g43hW9f23o4bXG";
+    Connection connection = DriverManager.getConnection(url , user  , password);
+    System.out.println(connection);
+    Statement stat = connection.createStatement();
+    ResultSet rs = stat.executeQuery("select version()");
+    rs.next();
+    System.out.println(rs.getString(1));
+    connection.close();
+  }
 
 	private void printServerReady() {
     final String line = "==============================================";

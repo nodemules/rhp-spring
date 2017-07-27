@@ -1,4 +1,4 @@
-package com.nodemules.rhp.api.game.bean;
+package com.nodemules.rhp.framework.game.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

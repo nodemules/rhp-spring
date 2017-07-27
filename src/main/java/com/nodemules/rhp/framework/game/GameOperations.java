@@ -1,7 +1,6 @@
-package com.nodemules.rhp.api.game;
+package com.nodemules.rhp.framework.game;
 
-import com.nodemules.rhp.api.game.bean.Game;
-import org.bson.types.ObjectId;
+import com.nodemules.rhp.framework.game.bean.Game;
 
 import java.text.ParseException;
 import java.util.List;
@@ -20,5 +19,12 @@ public interface GameOperations {
    */
   List<Game> getGames() throws ParseException;
 
-  Game getGame(ObjectId id) throws ParseException;
+  /**
+   * Get a game by id
+   *
+   * @param id
+   * @return
+   * @throws ParseException
+   */
+  Game getGame(Long id) throws ParseException;
 }

@@ -1,9 +1,11 @@
-package com.nodemules.rhp.api.game.bean;
+package com.nodemules.rhp.framework.game.bean;
 
+import com.nodemules.rhp.framework.event.bean.Event;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.List;
@@ -17,14 +19,12 @@ import java.util.List;
 @NoArgsConstructor
 public class Game {
 
+  @Id
   @NonNull
-  private String id;
-
+  private Long id;
   @NonNull
+  private Event event;
   private int status;
-
-  @NonNull
-  private String event;
   private Date startTime;
   private Date endTime;
   private boolean finalTable;

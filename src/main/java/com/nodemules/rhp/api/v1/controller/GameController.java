@@ -1,8 +1,7 @@
 package com.nodemules.rhp.api.v1.controller;
 
-import com.nodemules.rhp.api.game.GameOperations;
-import com.nodemules.rhp.api.game.bean.Game;
-import org.bson.types.ObjectId;
+import com.nodemules.rhp.framework.game.GameOperations;
+import com.nodemules.rhp.framework.game.bean.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +30,7 @@ public class GameController {
 
   @RequestMapping("/{id}")
   @ResponseBody
-  public Game getGame(@PathVariable String id) throws ParseException {
-    return gameService.getGame(new ObjectId(id));
+  public Game getGame(@PathVariable Long id) throws ParseException {
+    return gameService.getGame(id);
   }
 }

@@ -1,7 +1,6 @@
-package com.nodemules.rhp.api.player;
+package com.nodemules.rhp.framework.player;
 
-import com.nodemules.rhp.api.player.bean.Player;
-import org.bson.types.ObjectId;
+import com.nodemules.rhp.framework.player.bean.Player;
 
 import java.text.ParseException;
 import java.util.List;
@@ -25,6 +24,13 @@ public interface PlayerOperations {
    *
    * @return
    */
-  Player getPlayer(ObjectId id) throws ParseException;
+  Player getPlayer(Long id) throws ParseException;
 
+  /**
+   * Create or update a player
+   *
+   * @param player
+   * @return
+   */
+  Player persistPlayer(Player player);
 }

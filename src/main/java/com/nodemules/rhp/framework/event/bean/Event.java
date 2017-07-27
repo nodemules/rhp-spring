@@ -1,9 +1,10 @@
-package com.nodemules.rhp.api.player.bean;
+package com.nodemules.rhp.framework.event.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.data.annotation.Id;
 
 /**
  * @author brent
@@ -12,14 +13,9 @@ import lombok.NonNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Player {
+public class Event {
 
+  @Id
   @NonNull
-  private String id;
-  @NonNull
-  private String name;
-  private boolean isTournamentDirector;
-  private int shoutOuts;
-
-
+  private Long id;
 }
