@@ -15,6 +15,7 @@ import java.util.List;
  * @since 7/29/17.
  */
 @Controller
+@RequestMapping("event")
 public class EventController {
 
   private static final Logger LOG = LoggerFactory.getLogger(EventController.class);
