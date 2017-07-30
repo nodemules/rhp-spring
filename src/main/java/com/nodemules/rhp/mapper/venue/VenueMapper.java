@@ -11,7 +11,7 @@ import java.util.List;
  * @since 7/29/17.
  */
 @Mapper(
-    withIgnoreFields = "time"
+    withIgnoreFields = {"time", "com.nodemules.rhp.orm.venue.Venue.events", "com.nodemules.rhp.orm.event.Event.venue"}
 )
 public interface VenueMapper {
 
