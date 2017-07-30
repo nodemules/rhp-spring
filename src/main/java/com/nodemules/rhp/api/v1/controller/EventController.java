@@ -30,7 +30,7 @@ public class EventController {
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Event getEvent(@PathVariable Integer id) {
+  public Event getEvent(@PathVariable Long id) {
     return eventService.getEvent(id);
   }
 

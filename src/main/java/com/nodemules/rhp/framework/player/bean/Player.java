@@ -18,7 +18,7 @@ public class Player {
 
   @Id
   @NonNull
-  private Integer id = -1;
+  private Long id = -1L;
   @NonNull
   private String name;
   private int status;

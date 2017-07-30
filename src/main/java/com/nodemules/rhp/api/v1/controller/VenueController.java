@@ -31,7 +31,7 @@ public class VenueController {
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Venue getVenue(@PathVariable Integer id) {
+  public Venue getVenue(@PathVariable Long id) {
     return venueService.getVenue(id);
   }
 

@@ -31,7 +31,7 @@ public class PlayerController {
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Player getPlayer(@PathVariable Integer id) {
+  public Player getPlayer(@PathVariable Long id) {
     return playerService.getPlayer(id);
   }
 

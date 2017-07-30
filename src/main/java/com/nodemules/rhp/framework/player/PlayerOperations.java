@@ -23,7 +23,7 @@ public interface PlayerOperations {
    *
    * @return
    */
-  Player getPlayer(Integer id);
+  Player getPlayer(Long id);
 
   /**
    * Create or update a player

@@ -25,7 +25,7 @@ public class Venue {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "venue_id")
-  private Integer id;
+  private Long id;
 
   private int status;
   private String name;

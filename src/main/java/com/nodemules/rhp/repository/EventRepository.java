@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  * @since 7/26/17.
  */
 @Repository
-public interface EventRepository extends JpaRepository<Event, Integer> {
+public interface EventRepository extends JpaRepository<Event, Long> {
 }

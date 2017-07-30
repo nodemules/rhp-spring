@@ -31,7 +31,7 @@ public class EventService implements EventOperations {
   }
 
   @Override
-  public Event getEvent(Integer id) {
+  public Event getEvent(Long id) {
     return mapper.toEvent(eventRepo.findOne(id));
   }
 

@@ -11,7 +11,7 @@ import java.util.List;
 public interface EventOperations {
   List<Event> getEvents();
 
-  Event getEvent(Integer id);
+  Event getEvent(Long id);
 
   Event persistEvent(Event event);
 }

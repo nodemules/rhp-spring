@@ -31,7 +31,7 @@ public class VenueService implements VenueOperations {
   }
 
   @Override
-  public Venue getVenue(Integer id) {
+  public Venue getVenue(Long id) {
     return mapper.toVenue(venueRepo.findOne(id));
   }
 

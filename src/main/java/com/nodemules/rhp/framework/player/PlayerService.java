@@ -31,7 +31,7 @@ public class PlayerService implements PlayerOperations {
   }
 
   @Override
-  public Player getPlayer(Integer id) {
+  public Player getPlayer(Long id) {
     return mapper.toPlayer(playerRepo.findOne(id));
   }
 

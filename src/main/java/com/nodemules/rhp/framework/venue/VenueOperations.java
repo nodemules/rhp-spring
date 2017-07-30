@@ -23,7 +23,7 @@ public interface VenueOperations {
    * @param id
    * @return
    */
-  Venue getVenue(Integer id);
+  Venue getVenue(Long id);
 
   /**
    * Create or update a venue

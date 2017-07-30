@@ -24,7 +24,7 @@ public class Venue {
 
   @Id
   @NonNull
-  private Integer id;
+  private Long id = -1L;
 
   private int status;
   private String name;

@@ -20,8 +20,7 @@ public class Event {
 
   @Id
   @NonNull
-  private Long id;
-
+  private Long id = -1L;
   private int status;
   private boolean completed;
 
