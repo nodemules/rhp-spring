@@ -10,7 +10,8 @@ import java.util.Date;
  * @author brent
  * @since 7/26/17.
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

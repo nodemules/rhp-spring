@@ -13,7 +13,8 @@
 // * @since 7/26/17.
 // */
 //
-//@Data
+//@Getter
+//@Setter
 //@AllArgsConstructor
 //@Entity
 //@Table(name = "game_attendee")

@@ -2,8 +2,9 @@ package com.nodemules.rhp.orm.venue;
 
 import com.nodemules.rhp.orm.event.Event;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -15,7 +16,8 @@ import java.util.Set;
  * @author brent
  * @since 7/26/17.
  */
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

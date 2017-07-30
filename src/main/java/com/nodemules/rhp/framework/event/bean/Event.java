@@ -1,5 +1,6 @@
 package com.nodemules.rhp.framework.event.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nodemules.rhp.framework.venue.bean.Venue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Event {
 
   @Id

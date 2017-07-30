@@ -1,7 +1,9 @@
 package com.nodemules.rhp.framework.venue.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.nodemules.rhp.framework.event.bean.Event;
 import com.nodemules.rhp.util.TimeUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +14,7 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.time.DayOfWeek;
+import java.util.List;
 
 /**
  * @author brent
@@ -20,6 +23,7 @@ import java.time.DayOfWeek;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Venue {
 
   @Id
@@ -41,6 +45,8 @@ public class Venue {
   private int minute;
 
   private int numberOfGames;
+
+  private List<Event> events;
 
   @JsonProperty("time")
   public String getTime() {
