@@ -32,7 +32,7 @@ public class PlayerController {
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Player getPlayer(@PathVariable Long id) throws ParseException {
+  public Player getPlayer(@PathVariable Integer id) throws ParseException {
     return playerService.getPlayer(id);
   }
 

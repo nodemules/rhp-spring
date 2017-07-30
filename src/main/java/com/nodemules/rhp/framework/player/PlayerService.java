@@ -32,7 +32,7 @@ public class PlayerService implements PlayerOperations {
   }
 
   @Override
-  public Player getPlayer(Long id) throws ParseException {
+  public Player getPlayer(Integer id) throws ParseException {
     return mapper.toPlayer(playerRepo.findOne(id));
   }
 

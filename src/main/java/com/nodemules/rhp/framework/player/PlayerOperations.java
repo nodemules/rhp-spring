@@ -24,7 +24,7 @@ public interface PlayerOperations {
    *
    * @return
    */
-  Player getPlayer(Long id) throws ParseException;
+  Player getPlayer(Integer id) throws ParseException;
 
   /**
    * Create or update a player

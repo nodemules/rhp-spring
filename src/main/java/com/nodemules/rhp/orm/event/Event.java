@@ -1,13 +1,11 @@
 //package com.nodemules.rhp.orm.event;
 //
-//import com.nodemules.rhp.orm.game.Game;
-//import com.nodemules.rhp.orm.player.Player;
+//import com.nodemules.rhp.orm.venue.Venue;
 //import lombok.AllArgsConstructor;
 //import lombok.Data;
 //
 //import javax.persistence.*;
 //import java.util.Date;
-//import java.util.List;
 //
 ///**
 // * @author brent
@@ -28,10 +26,13 @@
 //  private boolean completed;
 //  private Date date;
 //
-//  @OneToMany(targetEntity=Player.class, mappedBy="events", fetch=FetchType.EAGER)
-//  List<Player> tournamentDirectors;
+//  @JoinColumn(table = "venue_id")
+//  private Venue venue;
 //
-//  @OneToMany(targetEntity=Game.class, mappedBy="event", fetch=FetchType.EAGER)
-//  List<Game> games;
+////  @OneToMany(targetEntity=Player.class, mappedBy="events", fetch=FetchType.EAGER)
+////  List<TournamentDirecto> tournamentDirectors;
+////
+////  @OneToMany(targetEntity=Game.class, mappedBy="event", fetch=FetchType.EAGER)
+////  List<Game> games;
 //
 //}
