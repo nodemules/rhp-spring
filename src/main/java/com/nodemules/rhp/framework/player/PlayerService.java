@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -21,18 +20,18 @@ public class PlayerService implements PlayerOperations {
 
   private static final Logger LOG = LoggerFactory.getLogger(PlayerService.class);
 
-  private static PlayerMapper mapper = Selma.builder(PlayerMapper.class).build();
+  private static final PlayerMapper mapper = Selma.builder(PlayerMapper.class).build();
 
   @Autowired
   private PlayerRepository playerRepo;
 
   @Override
-  public List<Player> getPlayers() throws ParseException {
+  public List<Player> getPlayers() {
     return mapper.toPlayers(playerRepo.findAll());
   }
 
   @Override
-  public Player getPlayer(Integer id) throws ParseException {
+  public Player getPlayer(Integer id) {
     return mapper.toPlayer(playerRepo.findOne(id));
   }
 

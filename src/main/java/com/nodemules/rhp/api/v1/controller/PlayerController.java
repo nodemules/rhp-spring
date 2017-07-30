@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -26,13 +25,13 @@ public class PlayerController {
 
   @RequestMapping
   @ResponseBody
-  public List<Player> getPlayers() throws ParseException {
+  public List<Player> getPlayers() {
     return playerService.getPlayers();
   }
 
   @RequestMapping(method = RequestMethod.GET, value = "/{id}")
   @ResponseBody
-  public Player getPlayer(@PathVariable Integer id) throws ParseException {
+  public Player getPlayer(@PathVariable Integer id) {
     return playerService.getPlayer(id);
   }
 

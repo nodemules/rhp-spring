@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import javax.persistence.Id;
+
 /**
  * @author brent
  * @since 7/26/17.
@@ -14,7 +16,9 @@ import lombok.NonNull;
 @NoArgsConstructor
 public class Player {
 
-  private Long id = -1L;
+  @Id
+  @NonNull
+  private Integer id = -1;
   @NonNull
   private String name;
   private int status;

@@ -42,6 +42,6 @@ public interface PlayerMapper {
    * @param player
    * @return
    */
-  List<com.nodemules.rhp.orm.player.Player> toPlayer(List<Player> player);
+  List<com.nodemules.rhp.orm.player.Player> toPlayersList(List<Player> player);
 
 }

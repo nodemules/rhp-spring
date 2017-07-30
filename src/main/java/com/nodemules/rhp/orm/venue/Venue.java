@@ -1,5 +1,6 @@
 package com.nodemules.rhp.orm.venue;
 
+import com.nodemules.rhp.orm.event.Event;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.time.DayOfWeek;
+import java.util.Set;
 
 /**
  * @author brent
@@ -38,5 +40,8 @@ public class Venue {
   private int minute;
 
   private int numberOfGames;
+
+  @OneToMany(mappedBy = "venue")
+  private Set<Event> events;
 
 }

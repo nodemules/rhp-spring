@@ -2,7 +2,6 @@ package com.nodemules.rhp.framework.player;
 
 import com.nodemules.rhp.framework.player.bean.Player;
 
-import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -16,7 +15,7 @@ public interface PlayerOperations {
    *
    * @return
    */
-  List<Player> getPlayers() throws ParseException;
+  List<Player> getPlayers();
 
   /**
    * Get a Player by id
@@ -24,7 +23,7 @@ public interface PlayerOperations {
    *
    * @return
    */
-  Player getPlayer(Integer id) throws ParseException;
+  Player getPlayer(Integer id);
 
   /**
    * Create or update a player
