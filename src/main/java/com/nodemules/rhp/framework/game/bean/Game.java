@@ -1,7 +1,6 @@
 package com.nodemules.rhp.framework.game.bean;
 
 import com.nodemules.rhp.framework.event.bean.Event;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -15,19 +14,21 @@ import java.util.List;
  * @since 7/26/17.
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Game {
 
   @Id
-  @NonNull
-  private Long id;
+  private Long id = -1L;
+
   @NonNull
   private Event event;
+
   private int status;
   private Date startTime;
   private Date endTime;
   private boolean finalTable;
   private boolean completed;
+  private boolean inProgress;
+
   private List<Attendee> players;
 }

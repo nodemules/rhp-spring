@@ -27,4 +27,12 @@ public interface GameOperations {
    * @throws ParseException
    */
   Game getGame(Long id) throws ParseException;
+
+  /**
+   * Create or update a game
+   *
+   * @param game
+   * @return
+   */
+  Game persistGame(Game game);
 }

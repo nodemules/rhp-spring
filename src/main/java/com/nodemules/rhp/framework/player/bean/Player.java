@@ -1,12 +1,14 @@
 package com.nodemules.rhp.framework.player.bean;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nodemules.rhp.framework.game.bean.PlayedGame;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import java.util.List;
 
 /**
  * @author brent
@@ -27,5 +29,7 @@ public class Player {
   private int status;
   private boolean tournamentDirector;
   private int shoutOuts;
+
+  private List<PlayedGame> games;
 
 }

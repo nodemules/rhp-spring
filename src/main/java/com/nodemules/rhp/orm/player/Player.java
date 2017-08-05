@@ -1,11 +1,13 @@
 package com.nodemules.rhp.orm.player;
 
+import com.nodemules.rhp.orm.game.Attendee;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author brent
@@ -13,20 +15,23 @@ import javax.persistence.*;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "player")
-public class Player {
+public class Player implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "player_id")
   private Long id;
+
   private String name;
   private int status;
   private boolean tournamentDirector;
   private int shoutOuts;
+
+  @OneToMany(mappedBy = "player")
+  private Set<Attendee> games;
 
 }
 

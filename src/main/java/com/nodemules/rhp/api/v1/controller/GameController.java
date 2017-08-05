@@ -4,9 +4,7 @@ import com.nodemules.rhp.framework.game.GameOperations;
 import com.nodemules.rhp.framework.game.bean.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -32,5 +30,11 @@ public class GameController {
   @ResponseBody
   public Game getGame(@PathVariable Long id) throws ParseException {
     return gameService.getGame(id);
+  }
+
+  @RequestMapping(method = RequestMethod.POST)
+  @ResponseBody
+  public Game persistGame(@RequestBody Game game) {
+    return gameService.persistGame(game);
   }
 }

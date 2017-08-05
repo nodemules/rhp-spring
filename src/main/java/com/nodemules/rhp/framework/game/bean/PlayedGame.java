@@ -1,7 +1,5 @@
 package com.nodemules.rhp.framework.game.bean;
 
-import com.nodemules.rhp.framework.player.bean.Player;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,15 +7,13 @@ import java.util.Date;
 
 /**
  * @author brent
- * @since 7/26/17.
+ * @since 8/5/17.
  */
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Attendee {
+public class PlayedGame {
 
-  private Player player;
+  private Game game;
   private int score;
   private int rank;
   private Date cashedOutTime;

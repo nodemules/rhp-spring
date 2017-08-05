@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.util.Set;
 
@@ -13,14 +14,14 @@ import java.util.Set;
  * @author brent
  * @since 7/26/17.
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "venue")
-@Data
 @EqualsAndHashCode(exclude="events")
 @ToString(exclude="events")
-public class Venue {
+@Entity
+@Table(name = "venue")
+public class Venue implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

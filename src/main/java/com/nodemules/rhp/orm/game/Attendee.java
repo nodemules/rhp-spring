@@ -1,33 +1,38 @@
-//package com.nodemules.rhp.orm.game;
-//
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import javax.persistence.Table;
-//import java.util.Date;
-//
-///**
-// * @author brent
-// * @since 7/26/17.
-// */
-//
-//@AllArgsConstructor
-//@NoArgsContructor
-//@Getter
-//@Setter
-//@Entity
-//@Table(name = "game_attendee")
-//public class Attendee {
-//
-//  @Id
-//  private Long gameId;
-//  @Id
-//  private Long playerId;
-//
-//  private Integer score;
-//  private Integer rank;
-//  private Date cashedOutTime;
-//
-//}
+package com.nodemules.rhp.orm.game;
+
+import com.nodemules.rhp.orm.player.Player;
+import lombok.*;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * @author brent
+ * @since 7/26/17.
+ */
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@EqualsAndHashCode(exclude = {"game", "player"})
+@ToString(exclude = {"game", "player"})
+@Entity
+@Table(name = "attendee")
+public class Attendee implements Serializable {
+
+  @Id
+  @ManyToOne
+  @JoinColumn(name = "game_id")
+  private Game game;
+
+  @Id
+  @ManyToOne
+  @JoinColumn(name = "player_id")
+  private Player player;
+
+  private Integer score;
+  private Integer rank;
+  private Date cashedOutTime;
+
+}
