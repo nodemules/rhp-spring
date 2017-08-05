@@ -37,6 +37,6 @@ public class EventService implements EventOperations {
 
   @Override
   public Event persistEvent(Event event) {
-    return mapper.toEvent(eventRepo.save(mapper.toEvent(event)));
+    return mapper.toEvent(eventRepo.saveAndFlush(mapper.toEvent(event)));
   }
 }

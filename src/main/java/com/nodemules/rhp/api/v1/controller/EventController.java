@@ -38,7 +38,6 @@ public class EventController {
   @RequestMapping(method = RequestMethod.POST)
   @ResponseBody
   public Event persistEvent(@RequestBody Event event) {
-    LOG.info("Persisting event: ", event.toString());
     return eventService.persistEvent(event);
   }
 }

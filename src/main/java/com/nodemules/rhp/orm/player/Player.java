@@ -11,10 +11,10 @@ import javax.persistence.*;
  * @author brent
  * @since 7/26/17.
  */
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "player")
 public class Player {
@@ -29,3 +29,5 @@ public class Player {
   private int shoutOuts;
 
 }
+
+

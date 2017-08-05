@@ -12,9 +12,10 @@
 // * @author brent
 // * @since 7/26/17.
 // */
+//@AllArgsConstructor
+//@NoArgsContructor
 //@Getter
 //@Setter
-//@AllArgsConstructor
 //@Entity
 //@Table(name = "game")
 //public class Game {

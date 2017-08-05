@@ -1,10 +1,7 @@
 package com.nodemules.rhp.orm.venue;
 
 import com.nodemules.rhp.orm.event.Event;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -16,12 +13,13 @@ import java.util.Set;
  * @author brent
  * @since 7/26/17.
  */
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "venue")
+@Data
+@EqualsAndHashCode(exclude="events")
+@ToString(exclude="events")
 public class Venue {
 
   @Id

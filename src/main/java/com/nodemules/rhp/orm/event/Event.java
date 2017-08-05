@@ -4,19 +4,21 @@ import com.nodemules.rhp.orm.venue.Venue;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author brent
  * @since 7/26/17.
  */
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "event")
-public class Event {
+@Data
+@EqualsAndHashCode(exclude="venue")
+@ToString(exclude="venue")
+public class Event implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +29,7 @@ public class Event {
   private boolean completed;
   private Date date;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "venue_id")
   private Venue venue;
 
