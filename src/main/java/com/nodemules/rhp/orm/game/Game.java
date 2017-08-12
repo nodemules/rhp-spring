@@ -15,7 +15,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"attendees"})
+@EqualsAndHashCode(exclude = {"attendees", "event"})
 @ToString(exclude = {"attendees"})
 @Entity
 @Table(name = "game")
@@ -33,10 +33,11 @@ public class Game implements Serializable {
   private Boolean completed;
   private Boolean inProgress;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "event_id")
   private Event event;
 
-  @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private Set<Attendee> attendees;
 
 }

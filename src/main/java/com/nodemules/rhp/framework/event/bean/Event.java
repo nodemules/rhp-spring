@@ -1,6 +1,7 @@
 package com.nodemules.rhp.framework.event.bean;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nodemules.rhp.framework.game.bean.Game;
 import com.nodemules.rhp.framework.venue.bean.Venue;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.Min;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author brent
@@ -29,5 +31,7 @@ public class Event {
 
 //  @NonNull
   private Venue venue;
+
+  private List<Game> games;
 
 }

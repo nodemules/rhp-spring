@@ -12,7 +12,7 @@ import java.util.List;
  * @since 7/29/17.
  */
 @Mapper(
-    withIgnoreFields = {"time"}
+    withIgnoreFields = {"time", "Attendee.game", "PlayedGame.player", "Player.games", "Game.event"}
 )
 public interface VenueMapper {
 
@@ -25,7 +25,7 @@ public interface VenueMapper {
 
   List<com.nodemules.rhp.orm.venue.Venue> toVenuesList(List<Venue> venues);
 
-  @Maps(withIgnoreFields = "venue")
+  @Maps(withIgnoreFields = {"venue", "Attendee.game"})
   Event asEvent(com.nodemules.rhp.orm.event.Event inEvent);
 
   @Maps(withIgnoreFields = "venue")

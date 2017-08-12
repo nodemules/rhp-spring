@@ -1,5 +1,6 @@
 package com.nodemules.rhp.framework.game.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nodemules.rhp.framework.event.bean.Event;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -15,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = { "attendees" })
 @ToString(exclude = { "attendees" })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Game {
 
   @Id

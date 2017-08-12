@@ -1,7 +1,6 @@
 package com.nodemules.rhp.framework.game.bean;
 
 import com.nodemules.rhp.framework.player.bean.Player;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +12,6 @@ import java.util.Date;
  */
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Attendee {
 

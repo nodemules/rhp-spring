@@ -9,8 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -18,6 +18,7 @@ import java.util.List;
  * @since 7/26/17.
  */
 @Service
+@Transactional
 public class GameService implements GameOperations {
 
   private static final Logger LOG = LoggerFactory.getLogger(GameService.class);
@@ -31,26 +32,17 @@ public class GameService implements GameOperations {
   private GameRepository gameRepo;
 
   @Override
-  public List<Game> getGames() throws ParseException {
-    /* TODO */
-    return null;
+  public List<Game> getGames() {
+    return mapper.toGames(gameRepo.findAll());
   }
 
   @Override
-  public Game getGame(Long id) throws ParseException {
+  public Game getGame(Long id) {
     return mapper.toGame(gameRepo.findOne(id));
   }
 
   @Override
   public Game persistGame(Game game) {
-
-    LOG.info("Game Bean: {}", game.toString());
-
-    com.nodemules.rhp.orm.game.Game g = customGameMapper.toGame(game);
-
-    LOG.info("Game ORM: {}", g.toString());
-    LOG.info("Game ORM Attendees: {}", g.getAttendees().toString());
-
-    return mapper.toGame(gameRepo.save(g));
+    return mapper.toGame(gameRepo.save(customGameMapper.toGame(game)));
   }
 }

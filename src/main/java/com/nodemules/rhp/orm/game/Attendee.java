@@ -22,12 +22,12 @@ import java.util.Date;
 public class Attendee implements Serializable {
 
   @Id
-  @ManyToOne(targetEntity = Game.class, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "game_id")
   private Game game;
 
   @Id
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "player_id")
   private Player player;
 

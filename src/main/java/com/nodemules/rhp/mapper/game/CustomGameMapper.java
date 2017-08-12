@@ -101,24 +101,7 @@ public final class CustomGameMapper {
     com.nodemules.rhp.orm.game.Game out = null;
     if (inGame != null) {
       out = new com.nodemules.rhp.orm.game.Game();
-      out.setCompleted(inGame.isCompleted());
-      if (inGame.getEndTime() != null) {
-        out.setEndTime(new java.util.Date(inGame.getEndTime().getTime()));
-      }
-      else {
-        out.setEndTime(null);
-      }
-      out.setEvent(asEvent(inGame.getEvent()));
-      out.setFinalTable(inGame.isFinalTable());
       out.setId(inGame.getId());
-      out.setInProgress(inGame.isInProgress());
-      if (inGame.getStartTime() != null) {
-        out.setStartTime(new java.util.Date(inGame.getStartTime().getTime()));
-      }
-      else {
-        out.setStartTime(null);
-      }
-      out.setStatus(inGame.getStatus());
       if (inGame.getAttendees() != null) {
         java.util.HashSet<com.nodemules.rhp.orm.game.Attendee> aattendeesTmpCollection = new java.util.HashSet<com.nodemules.rhp.orm.game.Attendee>(inGame.getAttendees().size());
         for (com.nodemules.rhp.framework.game.bean.Attendee aattendeesItem : inGame.getAttendees()) {
@@ -129,6 +112,23 @@ public final class CustomGameMapper {
       else {
         out.setAttendees(null);
       }
+      out.setCompleted(inGame.isCompleted());
+      if (inGame.getEndTime() != null) {
+        out.setEndTime(new java.util.Date(inGame.getEndTime().getTime()));
+      }
+      else {
+        out.setEndTime(null);
+      }
+      out.setEvent(asEvent(inGame.getEvent()));
+      out.setFinalTable(inGame.isFinalTable());
+      out.setInProgress(inGame.isInProgress());
+      if (inGame.getStartTime() != null) {
+        out.setStartTime(new java.util.Date(inGame.getStartTime().getTime()));
+      }
+      else {
+        out.setStartTime(null);
+      }
+      out.setStatus(inGame.getStatus());
     }
     return out;
   }
@@ -182,14 +182,11 @@ public final class CustomGameMapper {
     if (attendee != null){
       a = new com.nodemules.rhp.orm.game.Attendee();
       a.setGame(game);
-      LOG.info("Setting orm.Attendee.game to: {}", a.getGame().toString());
       a.setPlayer(asPlayer(attendee.getPlayer()));
-      LOG.info("Setting orm.Attendee.player to: {}", a.getPlayer().toString());
       a.setCashedOutTime(attendee.getCashedOutTime());
       a.setRank(attendee.getRank());
       a.setScore(attendee.getScore());
     }
-    LOG.info("Converting bean.Attendee {} to orm.Attendee {}", attendee.toString(), a.toString());
 
     return a;
   }

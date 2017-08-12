@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Mapper(
     withIgnoreFields = {
-        "time"
+        "time", "Attendee.game", "PlayedGame.player", "Player.games", "Game.event"
     }
 )
 public interface EventMapper {

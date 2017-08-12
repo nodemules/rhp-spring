@@ -1,23 +1,25 @@
 package com.nodemules.rhp.orm.event;
 
+import com.nodemules.rhp.orm.game.Game;
 import com.nodemules.rhp.orm.venue.Venue;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author brent
  * @since 7/26/17.
  */
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "event")
-@Data
 @EqualsAndHashCode(exclude="venue")
 @ToString(exclude="venue")
+@Entity
+@Table(name = "event")
 public class Event implements Serializable {
 
   @Id
@@ -35,8 +37,8 @@ public class Event implements Serializable {
 
 //  @OneToMany(targetEntity=TournamentDirector.class, mappedBy="events", fetch=FetchType.EAGER)
 //  List<TournamentDirector> tournamentDirectors;
-//
-//  @OneToMany(targetEntity=Game.class, mappedBy="event", fetch=FetchType.EAGER)
-//  List<Game> games;
+
+  @OneToMany(mappedBy="event", fetch=FetchType.EAGER)
+  private Set<Game> games;
 
 }
