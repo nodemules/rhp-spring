@@ -26,10 +26,10 @@ public class Event {
   private int status;
   private boolean completed;
 
-//  @NonNull
+//  @NonNull - TODO fix persisting game to return populated entities and enable this for validation purposes
   private Date date;
 
-//  @NonNull
+//  @NonNull - TODO fix persisting game to return populated entities and enable this for validation purposes
   private Venue venue;
 
   private List<Game> games;

@@ -12,7 +12,7 @@ import java.util.List;
  * @since 7/29/17.
  */
 @Mapper(
-    withIgnoreFields = {"time", "Attendee.game", "PlayedGame.player", "Player.games", "Game.event"}
+    withIgnoreFields = {"time", "Attendee.game", "Player.games", "Game.event"}
 )
 public interface VenueMapper {
 

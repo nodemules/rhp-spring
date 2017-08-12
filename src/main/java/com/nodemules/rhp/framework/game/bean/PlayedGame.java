@@ -2,6 +2,7 @@ package com.nodemules.rhp.framework.game.bean;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class PlayedGame {
 
+  @NonNull
   private Game game;
   private int score;
   private int rank;

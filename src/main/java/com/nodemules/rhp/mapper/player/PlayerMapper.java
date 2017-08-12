@@ -11,7 +11,7 @@ import java.util.List;
  * @author brent
  * @since 7/26/17.
  */
-@Mapper(withIgnoreFields = {"Attendee.player", "Game.players", "Game.attendees", "Venue.time", "Event.games", "Venue.events"})
+@Mapper(withIgnoreFields = {"Attendee.player", "Game.attendees", "Venue.time", "Event.games", "Venue.events"})
 public interface PlayerMapper {
 
   Player toPlayer(com.nodemules.rhp.orm.player.Player player);
@@ -20,9 +20,6 @@ public interface PlayerMapper {
 
   com.nodemules.rhp.orm.player.Player toPlayer(Player player);
 
-  List<com.nodemules.rhp.orm.player.Player> toPlayersList(List<Player> player);
-
-//  @Maps(withCustom = PlayedGameMapper.class)
   PlayedGame asPlayedGame(Attendee attendance);
 
 }

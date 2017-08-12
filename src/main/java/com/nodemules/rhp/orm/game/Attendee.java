@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = {"game", "player"})
+@EqualsAndHashCode
 @ToString(exclude = {"game"})
 @Entity
 @Table(name = "attendee")

@@ -30,7 +30,7 @@ public class Player implements Serializable {
   private boolean tournamentDirector;
   private int shoutOuts;
 
-  @OneToMany(mappedBy = "player")
+  @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
   private Set<Attendee> games;
 
 }

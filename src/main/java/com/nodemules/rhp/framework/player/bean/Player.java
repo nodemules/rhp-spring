@@ -22,7 +22,7 @@ public class Player {
   @Min(1)
   private Long id = -1L;
 
-//  @NonNull
+//  @NonNull - TODO fix persisting game to return populated entities and enable this for validation purposes
   private String name;
 
   private int status;

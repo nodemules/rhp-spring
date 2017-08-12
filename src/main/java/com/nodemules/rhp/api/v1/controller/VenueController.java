@@ -38,7 +38,6 @@ public class VenueController {
   @RequestMapping(method = RequestMethod.POST)
   @ResponseBody
   public Venue persistVenue(@RequestBody Venue venue) {
-    LOG.info("Persisting venue: ", venue.toString());
     return venueService.persistVenue(venue);
   }
 }

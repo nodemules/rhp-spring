@@ -43,6 +43,6 @@ public class GameService implements GameOperations {
 
   @Override
   public Game persistGame(Game game) {
-    return mapper.toGame(gameRepo.save(customGameMapper.toGame(game)));
+    return mapper.toGame(gameRepo.saveAndFlush(customGameMapper.toGame(game)));
   }
 }
