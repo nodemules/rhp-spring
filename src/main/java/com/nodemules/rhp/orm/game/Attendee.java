@@ -16,18 +16,18 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @EqualsAndHashCode(exclude = {"game", "player"})
-@ToString(exclude = {"game", "player"})
+@ToString(exclude = {"game"})
 @Entity
 @Table(name = "attendee")
 public class Attendee implements Serializable {
 
   @Id
-  @ManyToOne
+  @ManyToOne(targetEntity = Game.class, cascade = CascadeType.ALL)
   @JoinColumn(name = "game_id")
   private Game game;
 
   @Id
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "player_id")
   private Player player;
 

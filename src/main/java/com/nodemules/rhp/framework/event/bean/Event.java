@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nodemules.rhp.framework.venue.bean.Venue;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.Min;
@@ -25,10 +24,10 @@ public class Event {
   private int status;
   private boolean completed;
 
-  @NonNull
+//  @NonNull
   private Date date;
 
-  @NonNull
+//  @NonNull
   private Venue venue;
 
 }

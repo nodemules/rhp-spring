@@ -1,9 +1,7 @@
 package com.nodemules.rhp.orm.player;
 
 import com.nodemules.rhp.orm.game.Attendee;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +14,8 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@EqualsAndHashCode(exclude = {"games"})
+@ToString(exclude = {"games"})
 @Entity
 @Table(name = "player")
 public class Player implements Serializable {

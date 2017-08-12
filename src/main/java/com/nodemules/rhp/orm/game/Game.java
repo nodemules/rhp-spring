@@ -15,8 +15,8 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"event", "attendees"})
-@ToString(exclude = {"event", "attendees"})
+@EqualsAndHashCode(exclude = {"attendees"})
+@ToString(exclude = {"attendees"})
 @Entity
 @Table(name = "game")
 public class Game implements Serializable {
@@ -36,7 +36,7 @@ public class Game implements Serializable {
   @ManyToOne
   private Event event;
 
-  @OneToMany(mappedBy = "game")
+  @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
   private Set<Attendee> attendees;
 
 }

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nodemules.rhp.framework.game.bean.PlayedGame;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
@@ -23,7 +22,7 @@ public class Player {
   @Min(1)
   private Long id = -1L;
 
-  @NonNull
+//  @NonNull
   private String name;
 
   private int status;
