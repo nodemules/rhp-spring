@@ -27,7 +27,7 @@ public class Attendee implements Serializable {
   private Game game;
 
   @Id
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "player_id")
   private Player player;
 
