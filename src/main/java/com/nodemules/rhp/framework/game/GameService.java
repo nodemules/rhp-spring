@@ -43,6 +43,8 @@ public class GameService implements GameOperations {
 
   @Override
   public Game persistGame(Game game) {
-    return mapper.toGame(gameRepo.saveAndFlush(customGameMapper.toGame(game)));
+    com.nodemules.rhp.orm.game.Game g = gameRepo.saveAndFlush(customGameMapper.toGame(game));
+    gameRepo.refresh(g);
+    return mapper.toGame(g);
   }
 }

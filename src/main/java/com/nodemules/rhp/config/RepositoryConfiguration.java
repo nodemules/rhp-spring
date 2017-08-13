@@ -14,7 +14,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableAutoConfiguration
 @EntityScan(basePackages = {"com.nodemules.rhp.orm"})
-@EnableJpaRepositories(basePackages = {"com.nodemules.rhp.repository"})
+@EnableJpaRepositories(
+    basePackages = {"com.nodemules.rhp.repository"},
+    repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class
+)
 @EnableTransactionManagement
 @EnableJpaAuditing
 public class RepositoryConfiguration {

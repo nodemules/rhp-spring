@@ -37,7 +37,7 @@ public class Game implements Serializable {
   @JoinColumn(name = "event_id")
   private Event event;
 
-  @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Set<Attendee> attendees;
 
 }
