@@ -42,7 +42,7 @@ public class Venue implements Serializable {
 
   private int numberOfGames;
 
-  @OneToMany(mappedBy = "venue")
+  @OneToMany(mappedBy = "venue", fetch=FetchType.EAGER)
   private Set<Event> events;
 
 }

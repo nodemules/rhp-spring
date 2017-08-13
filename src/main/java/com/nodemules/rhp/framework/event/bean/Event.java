@@ -1,6 +1,8 @@
 package com.nodemules.rhp.framework.event.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nodemules.rhp.framework.audit.Auditable;
 import com.nodemules.rhp.framework.game.bean.Game;
 import com.nodemules.rhp.framework.venue.bean.Venue;
 import lombok.Data;
@@ -18,7 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Event {
+public class Event extends Auditable {
 
   @Id
   @Min(1)
@@ -27,6 +29,7 @@ public class Event {
   private boolean completed;
 
 //  @NonNull - TODO fix persisting game to return populated entities and enable this for validation purposes
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date date;
 
 //  @NonNull - TODO fix persisting game to return populated entities and enable this for validation purposes

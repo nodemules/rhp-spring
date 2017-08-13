@@ -1,5 +1,6 @@
 package com.nodemules.rhp.orm.event;
 
+import com.nodemules.rhp.orm.Auditable;
 import com.nodemules.rhp.orm.game.Game;
 import com.nodemules.rhp.orm.venue.Venue;
 import lombok.*;
@@ -20,7 +21,7 @@ import java.util.Set;
 @ToString(exclude="venue")
 @Entity
 @Table(name = "event")
-public class Event implements Serializable {
+public class Event extends Auditable implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,12 +32,13 @@ public class Event implements Serializable {
   private boolean completed;
   private Date date;
 
-  @ManyToOne(fetch = FetchType.EAGER)
+
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "venue_id")
   private Venue venue;
 
-//  @OneToMany(targetEntity=TournamentDirector.class, mappedBy="events", fetch=FetchType.EAGER)
-//  List<TournamentDirector> tournamentDirectors;
+  //  @OneToMany(targetEntity=TournamentDirector.class, mappedBy="events", fetch=FetchType.EAGER)
+  //  List<TournamentDirector> tournamentDirectors;
 
   @OneToMany(mappedBy="event", fetch=FetchType.EAGER)
   private Set<Game> games;

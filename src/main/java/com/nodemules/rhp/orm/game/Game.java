@@ -33,7 +33,7 @@ public class Game implements Serializable {
   private Boolean completed;
   private Boolean inProgress;
 
-  @OneToOne(fetch = FetchType.EAGER)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "event_id")
   private Event event;
 
