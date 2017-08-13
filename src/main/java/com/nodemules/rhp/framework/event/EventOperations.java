@@ -9,6 +9,8 @@ import java.util.List;
  * @since 7/26/17.
  */
 public interface EventOperations {
+  List<Event> getEventsByVenueName(String name);
+
   List<Event> getEvents();
 
   Event getEvent(Long id);

@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan(basePackages = {"com.nodemules.rhp.orm"})
 @EnableJpaRepositories(
     basePackages = {"com.nodemules.rhp.repository"},
-    repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class
+    repositoryFactoryBeanClass = RefreshableJpaRepositoryFactoryBean.class
 )
 @EnableTransactionManagement
 @EnableJpaAuditing

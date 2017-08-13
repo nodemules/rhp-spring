@@ -1,5 +1,6 @@
 package com.nodemules.rhp.api.v1.controller;
 
+import com.nodemules.rhp.api.v1.query.Query;
 import com.nodemules.rhp.framework.event.EventOperations;
 import com.nodemules.rhp.framework.event.bean.Event;
 import org.slf4j.Logger;
@@ -29,7 +30,16 @@ public class EventController {
     return eventService.getEvents();
   }
 
-  @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+  @RequestMapping("/query")
+  @ResponseBody
+  public List<Event> getEventsByQuery(Query query) {
+    if (query.getName() != null) {
+      return eventService.getEventsByVenueName(query.getName());
+    }
+    return eventService.getEvents();
+  }
+
+  @RequestMapping(value = "/{id}")
   @ResponseBody
   public Event getEvent(@PathVariable Long id) {
     return eventService.getEvent(id);

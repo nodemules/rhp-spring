@@ -1,6 +1,7 @@
 package com.nodemules.rhp.framework.event;
 
 import com.nodemules.rhp.framework.event.bean.Event;
+import com.nodemules.rhp.framework.specifications.event.EventSpecification;
 import com.nodemules.rhp.mapper.event.EventMapper;
 import com.nodemules.rhp.repository.EventRepository;
 import fr.xebia.extras.selma.Selma;
@@ -25,16 +26,24 @@ public class EventService implements EventOperations {
   private static EventMapper mapper = Selma.builder(EventMapper.class).build();
 
   @Autowired
+  private static EventSpecification eventSpec;
+
+  @Autowired
   private EventRepository eventRepo;
 
   @Override
+  public List<Event> getEventsByVenueName(String name) {
+    return mapper.toEvents(eventRepo.findAll(eventSpec.byVenueName(name)));
+  }
+
+  @Override
   public List<Event> getEvents() {
-    return mapper.toEvents(eventRepo.findAll());
+    return mapper.toEvents(eventRepo.findAll(eventSpec.isActive()));
   }
 
   @Override
   public Event getEvent(Long id) {
-    return mapper.toEvent(eventRepo.findOne(id));
+    return mapper.toEvent(eventRepo.findOne(eventSpec.byId(id)));
   }
 
   @Override
